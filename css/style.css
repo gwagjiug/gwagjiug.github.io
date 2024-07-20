@@ -405,3 +405,32 @@ a:hover {
   column-gap: 2rem;
   margin-bottom: var(--spacing-4);
 }
+.footer__icon {
+  font-size: 1.2rem;
+}
+.footer__copy {
+  font-size: var(--font-size-6);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Floating Button */
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--box-shadow-1);
+  transition: 0.3;
+}
+
+.floating-button:hover {
+  background-color: var(--dark-color);
+}
+.floating-button-icon {
+  font-size: 1.2rem;
+}
