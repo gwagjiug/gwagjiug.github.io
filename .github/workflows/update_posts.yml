@@ -3,7 +3,7 @@ name: Fetch and Update Posts
 on:
   push:
     branches:
-      - main # 'main' 브랜치에 푸시될 때마다 실행
+      - main
   schedule:
     - cron: '0 * * * *' # 매 시간마다 실행
 
@@ -17,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14' # 사용할 Node.js 버전
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
@@ -31,4 +31,4 @@ jobs:
           add: 'posts.json'
           message: 'Update posts.json'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
