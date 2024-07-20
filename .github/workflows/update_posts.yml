@@ -1,0 +1,27 @@
+name: Update Velog Posts
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # 6시간마다 실행
+  workflow_dispatch:  # 수동 실행 옵션
+
+jobs:
+  update-posts:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: Install dependencies
+      run: npm install axios xml2js
+    - name: Fetch and update posts
+      run: node .github/scripts/fetch_posts.js
+    - name: Commit and push if changed
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'
+        git add -A
+        git commit -m "Update Velog posts" || exit 0
+        git push
