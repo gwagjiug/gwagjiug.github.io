@@ -49,3 +49,20 @@ function displayError(message) {
   const postContainer = document.querySelector('.post-container');
   postContainer.innerHTML = `<p>${message}. Please try again later.</p>`;
 }
+
+function toggleMenu() {
+  const $navMenu = document.getElementById('nav__menu');
+  $navMenu.classList.toggle('show');
+}
+
+function init() {
+  const $navToggle = document.getElementById('nav-toggle');
+  $navToggle.addEventListener('click', () => {
+    //Menu 토글
+    toggleMenu();
+  });
+
+  const $navLinkList = document.querySelectorAll('.nav__link');
+  $navLinkList.forEach((el) => el.addEventListener('click', toggleMenu));
+}
+init();
