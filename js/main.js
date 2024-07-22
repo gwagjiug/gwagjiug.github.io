@@ -65,4 +65,49 @@ function init() {
   const $navLinkList = document.querySelectorAll('.nav__link');
   $navLinkList.forEach((el) => el.addEventListener('click', toggleMenu));
 }
+
 init();
+
+const options = {
+  threshold: 0.8,
+  // 지정한 부분이 50%정도 보이면 실행.
+  // 1로하게 되면 완전히 보였을 때 실행.
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const sectionId = entry.target.id;
+    if (entry.isIntersecting) {
+      // 교차가 되었다면
+      // entry.target.classList.add('bg-dark');
+      document
+        .querySelector(`.nav__link[href*=${sectionId}]`)
+        .classList.add('active-link');
+
+      const $items = document.querySelectorAll(
+        `.nav__link:not([href*=${sectionId}])`,
+      );
+      $items.forEach((el) => el.classList.remove('active-link'));
+    }
+  });
+}, options);
+
+const $sectionList = document.querySelectorAll('.section');
+$sectionList.forEach((el) => observer.observe(el));
+// viewport에서 사라지고 생기는 걸 감지
+
+// workSection을 observe api가 감지하는 것 감지가 되면 콜백함수 실행
+// ScrollReveal 초기화
+const scrollReveal = ScrollReveal({
+  origin: 'top',
+  distance: '60px',
+  duration: 2000,
+  delay: 200,
+});
+
+scrollReveal.reveal('.home__data, .about_img, .skills__text');
+scrollReveal.reveal('.home__img, .about_data, .skills__img', { delay: 400 });
+scrollReveal.reveal('.skills__data, .post-container, .comment', {
+  interval: 200,
+});
+// 데이터 0.2초간격 인터벌 적용
