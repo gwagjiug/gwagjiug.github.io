@@ -12,6 +12,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/typeit@8.8.3/dist/index.umd.js"></script>
 
     <title>곽지욱 웹</title>
   </head>
@@ -55,11 +56,7 @@
       <!-- home -->
       <section id="home" class="home container section">
         <div class="home__data">
-          <h2 class="home__title">
-            안녕하세요 !<br />
-            <strong class="home__title-color">프론트엔드 개발자</strong><br />
-            <strong class="home__title-color">곽지욱입니다!</strong>
-          </h2>
+          <h2 class="home__title" id="typeit"></h2>
 
           <a href="#comment" class="button">Comment</a>
           <!-- icon 영역 -->
@@ -251,7 +248,7 @@
           async
         ></script>
       </section>
-      <button class="floating-button" id="floatingButton">
+      <button class="floating-button" id="floating-button">
         <i class="fa-solid fa-arrow-up floating-button-icon"></i>
       </button>
     </main>

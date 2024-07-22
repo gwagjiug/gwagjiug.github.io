@@ -111,3 +111,28 @@ scrollReveal.reveal('.skills__data, .post-container, .comment', {
   interval: 200,
 });
 // 데이터 0.2초간격 인터벌 적용
+
+// floating버튼
+// floating버튼
+const $floatingButton = document
+  .getElementById('floating-button')
+  .addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+
+const typeit = new TypeIt('#typeit', {
+  speed: 70,
+  startDelay: 1300,
+  waitUntilVisible: true,
+});
+
+typeit
+  .type('안녕하세요!<br>')
+  .type('<strong class="home__title-color">프론트엔드 개발자</strong><br />')
+  .type('<strong class="home__title-color">GWAGJIUG!</strong>')
+  .delete(9, { delay: 300 })
+  .type('<strong class="home__title-color">곽지욱입니다!</strong>')
+  .go();
