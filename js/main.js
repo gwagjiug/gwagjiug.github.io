@@ -26,7 +26,7 @@ function createPostCard(postData) {
   postCard.href = postData.link;
   postCard.className = 'post-card';
   postCard.target = '_blank';
-  const thumbnailUrl = postData.thumbnail || './images/work/velog_logo.png';
+  const thumbnailUrl = './images/work/velog_logo.png';
   postCard.innerHTML = `
     <img src="${thumbnailUrl}" alt="${
     postData.title
